@@ -229,16 +229,54 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-
-                      Positioned(
-                        top: 100,
-                        left: 20,
-                        child: Container(
-                          width: 450,
-                          height: 80,
-                          color: Colors.amber,
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 100),
+                            width: 450,
+                            height: 390, // Tăng chiều cao của Container
+                            // color: Colors.amber,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Hoàn thành nhiệm vụ nhận ngay 500 điểm",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                const SizedBox(height: 10),
+                                SizedBox(
+                                  height: 200, // Đặt chiều cao cho GridView
+                                  child: GridView.builder(
+                                    scrollDirection: Axis.vertical,
+                                    gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 4,
+                                      crossAxisSpacing: 5.0,
+                                      mainAxisSpacing: 5.0,
+                                    ),
+                                    itemCount: 4,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Container(
+                                        width: 158,
+                                        height: 146,
+                                        color: Colors.black,
+                                        child: Center(
+                                          child: Text('Item $index',
+                                              style: const TextStyle(
+                                                  color: Colors.white)),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      )
                       ],
                     )),
               )
